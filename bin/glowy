@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require './lib/glowy'
+
+#you don't want to put logic in here 
+
+Glowy::CLI.new.call
