@@ -16,6 +16,20 @@ class Glowy::Time
     uri = URI('http://freegeoip.net/json/?q=' + ip)
     test_two = Net::HTTP.get(uri)
     puts test_two
+    bar = JSON.parse(test_two)
+    long = bar["longitude"]
+    lat = bar["latitude"]
+
+  baz = URI("http://api.sunrise-sunset.org/json?lat=#{lat}&lng=#{long}")
+  test_three = Net::HTTP.get(baz)
+  alpha = JSON.parse(test_three)
+  sunset = alpha["results"]["sunset"]
+  sunrise = alpha["results"]["sunrise"]
+
+  puts "THIS IS SUNSET " + sunset
+  puts "THIS IS SUNRISE " + sunrise
+
   end
+
 
 end
